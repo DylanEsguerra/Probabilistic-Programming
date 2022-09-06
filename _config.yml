@@ -24,8 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Evaluation probabilistic programming packages in python for the use of builiding bayesian regression models for anibody binding afinity
 baseurl: "Probabilistic-Programming" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  DylanEsguerra
 
 # Build settings
 theme: Cayman
