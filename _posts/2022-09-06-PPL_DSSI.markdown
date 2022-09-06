@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Probabilistic-Programming"
+title: "Probabilistic Programming"
 subtitle: DSSI Lawrence Livermore National Laboratory 
 math: on
 ppls: "pyMC3,Edward2,TFP,Pyro,Numpyro"
