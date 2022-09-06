@@ -1,7 +1,11 @@
-
-# Probabilistic-Programming
-### Dylan Esguerra
-#### Lawrence Livermore National Laboratory DSSI 2022
+---
+layout: page
+title: "Probabilistic-Programming"
+subtitle: DSSI Lawrence Livermore National Laboratory 
+math: on
+ppls: "pyMC3,Edward2,TFP,Pyro,Numpyro"
+sorttable: on
+---
 
 
 - Introduce The Problem
