@@ -13,5 +13,5 @@
 $\frac{1}{\sqrt{2\pi}}\exp{\frac{(x-\mu)^2}{\sigma^2}}$
 
 <p align="center">
-"Blog 2/trace_test.png"
+![alt text](https://github.com/[DylanEsguerra]/[Probabilistic-Programming]/blob/[Blog 2]/trace_test.png?raw=true)
 </p>
