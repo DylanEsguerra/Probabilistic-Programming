@@ -1,4 +1,4 @@
-usemathjax: true
+
 # Probabilistic-Programming
 ### Dylan Esguerra
 #### Lawrence Livermore National Laboratory DSSI 2022
