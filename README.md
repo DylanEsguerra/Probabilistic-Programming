@@ -1,36 +1,37 @@
 # Probabilistic-Programming
 
 
-Foobar is a Python library for dealing with word pluralization.
+\documentclass[a4paper]{article}
 
-## Installation
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
-```bash
-pip install foobar
-```
 
-## Usage
+\author{Dylan Esguerra}
 
-```python
-import foobar
+\date{September 2, 2022}
 
-# returns 'words'
-foobar.pluralize('word')
+\begin{document}
+\maketitle
 
-# returns 'geese'
-foobar.pluralize('goose')
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
 
-## Contributing
-Pull requests are welcome. For major changes, please open a
-discuss what you would like to change.
+\section{Testing text}
 
-Please make sure to update tests as appropriate.
+Professor Cook claimed that the ability to think logically and draw conclusions logically is one reason why he is good at math. Also, the fact that he is able to look for patterns and the next step in problems help him as a mathematician.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+\section{Testing Math}
+\label{sec:examples}
+
+
+$\frac{1}{\sqrt{2\pi}}\exp{\frac{(x-\mu)^2}{\sigma^2}}$
+
+\section{Testing picture}
+
+\includegraphics[scale=0.5]{trace_test.png}
+
+\end{document}
