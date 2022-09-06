@@ -8,7 +8,7 @@
 - Introduce The Models
     - Simple Bayesian
     - Hierarchical
-- Runtime Comparisons 
+- Runtime Comparisons
 
 
 $$\frac{1}{\sqrt{2\pi}}\exp{\frac{(x-\mu)^2}{\sigma^2}}$$
