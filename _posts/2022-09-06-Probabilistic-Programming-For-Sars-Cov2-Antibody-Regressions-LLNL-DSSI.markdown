@@ -1,4 +1,4 @@
-usemathjax: true
+
 
 # Probabilistic Programming for Sars-Cov-2 Antibody regressions
 
