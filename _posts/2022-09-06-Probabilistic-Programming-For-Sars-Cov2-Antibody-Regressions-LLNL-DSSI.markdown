@@ -66,8 +66,8 @@ $$\tau_{a} \sim IG(100,100)$$
 
 ### Coefficients
 
-![Simple Model](/Probabilistic-Programming/_posts/trace.png)
-![Hierarchical Model](/Probabilistic-Programming/_postsH_trace.png)
+![Simple Model](/Probabilistic-Programming?_posts/trace.png)
+![Hierarchical Model](/Probabilistic-Programming/_posts/H_trace.png)
 
 ### Run time
 
