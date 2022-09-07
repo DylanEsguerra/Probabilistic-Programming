@@ -14,8 +14,8 @@ Probabilistic programming is a tool for statistical modeling where a model is de
 We will be evaluating two models in five different probabilistic programming languages (PPLs) available with python. For most PPLs the default sampler for MCMC is NUTS. We aimed to fit all the models in NUTS and used other samplers when appropriate. 
 
 
-| Numpyro | Pyro | PyMC3 | Edward2 | Tensorflow | Probability |
-| ------- | ------- | ------- | ------- | ------- | ------- |
+| Numpyro | Pyro | PyMC3 | Edward2 | Tensorflow Probability |
+| ------- | ------- | ------- | ------- | ------- |
 |NUTS | NUTS | NUTS, MH | NUTS, HMC | NUTS, HMC|
 
 ## The Data
@@ -83,6 +83,11 @@ Each model was run for 5,000 samples and 2,500 burn in steps and one chain. This
 \end{tabular}
 \end{center}
 
+|Runtime in Seconds Simple Model| 
+| | Numpyro | Pyro | PyMC3 | Edward2 | Tensorflow Probability |
+|------| ------- | ------- | ------- | ------- | ------- |
+|Script   | NUTS: 17.06 |NUTS: 1390.59| NUTS: 87.74 MH: 6.46 | NUTS:178.40 HMC:15.48  |  NUTS:176.11 HMC:9.70|
+|Notebook | NUTS: 17.00 |NUTS: 436.46| NUTS: 33.51 MH: 9.01 | NUTS:170.71 HMC:15.12  |  NUTS:171.58 HMC:9.57|
 
 \begin{center}
     \begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}| }
