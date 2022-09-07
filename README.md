@@ -33,13 +33,13 @@ We chose to fit two Bayesian models, the first being a simple regression model a
 ### Simple Bayesian Model
 The first model gives normal priors on the slopes and intercept and an Inverse gamma prior on the models variance. These were chosen do to the analytical tractability given by conjugacy should comparisons want to be made between the inference preformed by the PPL's and a hand coded Gibb's sampler. Hyper-parameters were chosen to reflect the data particularly for the intercept. 
 
-     $$y_{i}|\beta,\alpha,\sigma \sim N({x_{i}}^{T} \beta + \alpha, \sigma^2), i = 1,......,n$$
+$$y_{i}|\beta,\alpha,\sigma \sim N({x_{i}}^{T} \beta + \alpha, \sigma^2), i = 1,......,n$$
 
-     $$\beta \sim N(0,1)$$
+$$\beta \sim N(0,1)$$
 
-     $$\alpha \sim N(70,10)$$
+$$\alpha \sim N(70,10)$$
 
-     $$\sigma^2 \sim IG(1,1)$$
+$$\sigma^2 \sim IG(1,1)$$
 
 ### Hierarchical Bayesian Model
 
@@ -48,21 +48,21 @@ This model was chosen to explore the effect of antibody clusters on our coeffici
 Hierarchical models also known as partially pooled models are good for modeling data with different groups because they allow for between group variation but still link the groups by a common prior distribution. 
 
 
-     $$y_{ij}|\beta,\alpha,\sigma \sim N({x_{ij}}^{T} \beta_{i} + \alpha_{i}, \sigma^2), i = 1,2, j = 1,....n_{i}$$
+$$y_{ij}|\beta,\alpha,\sigma \sim N({x_{ij}}^{T} \beta_{i} + \alpha_{i}, \sigma^2), i = 1,2, j = 1,....n_{i}$$
 
-     $$\beta_{i} \sim N(\mu_{b},\tau_{b})$$
+$$\beta_{i} \sim N(\mu_{b},\tau_{b})$$
 
-     $$\alpha_{i} \sim N(\mu_{a},\tau_{a})$$
+$$\alpha_{i} \sim N(\mu_{a},\tau_{a})$$
 
-     $$\sigma^2 \sim IG(100,100)$$
+$$\sigma^2 \sim IG(100,100)$$
 
-     $$\mu_{b} \sim N(0,10^4)$$
+$$\mu_{b} \sim N(0,10^4)$$
 
-     $$\tau_{b} \sim IG(100,100)$$
+$$\tau_{b} \sim IG(100,100)$$
 
-     $$\mu_{a} \sim N(0,10^4)$$
+$$\mu_{a} \sim N(0,10^4)$$
 
-     $$\tau_{a} \sim IG(100,100)$$
+$$\tau_{a} \sim IG(100,100)$$
 
 ## Results
 
