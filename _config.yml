@@ -21,7 +21,7 @@
 title: Probabilistic Programming for Covid Antibody Regressions
 email: desguerr@ucsc.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Evaluation probabilistic programming language in python for the use of builiding bayesian regression models for antibody melt temperature
+  Evaluation probabilistic programming languages in python for the use of builiding bayesian regression models for antibody melt temperature
 baseurl: "Probabilistic-Programming" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  DylanEsguerra
