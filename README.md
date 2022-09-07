@@ -70,7 +70,7 @@ $$\tau_{a} \sim IG(100,100)$$
 
 ### Run time
 
-Each model was run for 5,000 samples and 2,500 burn in steps. This was chosen as most models appeared to converge well at this length and consistency of iterations is important for run time comparisons. However it must be noted that not all samplers are the same in the amount of iterations needed to reach convergence. Note that the NUTS sampler seemed to have already converged for both models in as little as 1,000 steps where HMC and especially the Metropolis Hastings algorithm need more. 
+Each model was run for 5,000 samples and 2,500 burn in steps and one chain. This was chosen as most models appeared to converge well at this length and consistency of iterations is important for run time comparisons. However it must be noted that not all samplers are the same in the amount of iterations needed to reach convergence. Note that the NUTS sampler seemed to have already converged for both models in as little as 1,000 steps where HMC and especially the Metropolis Hastings algorithm need more. Also note that multiple chains are often useful when evaluating the convergence of MCMC. Only one chain was used here to to Pyro's inability to handle multiple chains in the Hierarchical model. The use of multiple chains also proved tricky in Edward2 and Tensorflow Probability although it is supposed to be possible. 
 
 \begin{center}
 \begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}| }
