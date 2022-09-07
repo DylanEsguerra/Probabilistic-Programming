@@ -26,7 +26,7 @@ We chose to fit two Bayesian models, the first being a simple regression model a
 
 
 ### Simple Bayesian Model
-The first model gives normal priors on the slopes and intercept and an Inverse gamma prior on the models variance. These were chosen do to the analytical tractability given by conjugacy should comparisons want to be made between the inference preformed by the PPLs and a hand coded Gibb's sampler. Hyper-parameters were chosen to reflect the data particularly for the intercept. 
+The first model gives normal priors on the slopes and intercept and an Inverse gamma prior on the models variance. These were chosen do to the analytical tractability given by conjugacy. This would prove particularly useful should comparisons want to be made between the inference preformed by the PPLs and a hand coded Gibb's sampler. Hyper-parameters were chosen to reflect the data particularly for the intercept. 
 
 $$y_{i}|\beta,\alpha,\sigma \sim N({x_{i}}^{T} \beta + \alpha, \sigma^2), i = 1,......,n$$
 
@@ -38,11 +38,11 @@ $$\sigma^2 \sim IG(1,1)$$
 
 ### Hierarchical Bayesian Model
 
-This model was chosen to explore the effect of antibody clusters on our coefficients. Our data set can be divided into two distinct antibody clusters based on similarities between antibodies. We want to see how mutations behave on different antibody clusters which can be thought of as backbones to witch the mutations are applied.  
+This model was chosen to explore the effect of antibody clusters on our coefficients. Our data set can be divided into two distinct antibody clusters based on similarities between antibodies. We want to see how mutations behave on different antibody clusters which can be thought of as backbones to which the mutations are applied.  
 
 Hierarchical models also known as partially pooled models are good for modeling data with different groups because they allow for between group variation but still link the groups by a common prior distribution. 
 
-Here we chose to use a non-informative priors for our hyperpriors to see if the hierarchical model can converge to expected results when given less initial information. Experimenting with tighter priors (less variance) revealed similar results for the primary coefficients ($\Beta, \alpha, \sigma$
+Here we chose to use a non-informative priors (high variance not a Jeffry's prior) for our hyperpriors to see if the hierarchical model can converge to expected results when given less initial information. Experimenting with tighter priors (less variance) revealed similar results for the primary coefficients ($\Beta, \alpha, \sigma$)
 
 
 $$y_{ij}|\beta,\alpha,\sigma \sim N({x_{ij}}^{T} \beta_{i} + \alpha_{i}, \sigma^2), i = 1,2, j = 1,....n_{i}$$
@@ -69,36 +69,17 @@ $$\tau_{a} \sim IG(100,100)$$
 
 Each model was run for 5,000 samples and 2,500 burn in steps and one chain. This was chosen as most models appeared to converge well at this length and consistency of iterations is important for run time comparisons. However it must be noted that not all samplers are the same in the amount of iterations needed to reach convergence. Note that the NUTS sampler seemed to have already converged for both models in as little as 1,000 steps where HMC and especially the Metropolis Hastings algorithm need more. Also note that multiple chains are often useful when evaluating the convergence of MCMC. Only one chain was used here do to Pyro's inability to handle multiple chains in the Hierarchical model. The use of multiple chains also proved tricky in Edward2 and Tensorflow Probability although it is supposed to be possible. 
 
-\begin{center}
-\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}| }
- \hline
- \multicolumn{6}{|c|}{Simple Model} \\
- \hline
-  & Numpyro & Pyro & pyMC3 & Edward2 & TFP \\
- \hline
- Script   & NUTS: 17.06 &NUTS: 1390.59& NUTS: 87.74 MH: 6.46 & NUTS:178.40 HMC:15.48  &  NUTS:176.11 HMC:9.70 \\
- \hline
- Notebook & NUTS: 17.00 &NUTS: 436.46& NUTS: 33.51 MH: 9.01 & NUTS:170.71 HMC:15.12  &  NUTS:171.58 HMC:9.57 \\
- \hline
-\end{tabular}
-\end{center}
 
 |Runtime in Seconds Simple Model| 
 | | Numpyro | Pyro | PyMC3 | Edward2 | Tensorflow Probability |
 |------| ------- | ------- | ------- | ------- | ------- |
-|Script   | NUTS: 17.06 |NUTS: 1390.59| NUTS: 87.74 MH: 6.46 | NUTS:178.40 HMC:15.48  |  NUTS:176.11 HMC:9.70|
-|Notebook | NUTS: 17.00 |NUTS: 436.46| NUTS: 33.51 MH: 9.01 | NUTS:170.71 HMC:15.12  |  NUTS:171.58 HMC:9.57|
+|Script   | NUTS: 17.06 |NUTS: 1390.59| NUTS: 87.74, MH: 6.46 | NUTS: 178.40, HMC: 5.48  |  NUTS: 176.11, HMC: 9.70|
+|Notebook | NUTS: 17.00 |NUTS: 436.46| NUTS: 33.51, MH: 9.01 | NUTS: 170.71, HMC: 15.12  |  NUTS: 171.58, HMC: 9.57|
 
-\begin{center}
-    \begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}| }
-    \hline
-    \multicolumn{6}{|c|}{Hierarchical Model} \\
-    \hline
-    & Numpyro & Pyro & pyMC3 & Edward2 & TFP \\
-    \hline
-    Script   & NUTS: 54.53& NUTS: 1815.60 & NUTS: N/A MH: 50.42 & NUTS: 2053.96 HMC: 31.56  &  NUTS: 2086.73 HMC: 15.48 \\
-    \hline
-    Notebook & NUTS: 56.54 & NUTS: 2236.87 & NUTS: N/A MH:29.26 & NUTS: 1968.84 HMC: 30.06  &  NUTS: 1981.48 HMC: 21.88 \\
-    \hline
-    \end{tabular}
-\end{center}
+|Runtime in Seconds Hierarchical Model| 
+| | Numpyro | Pyro | PyMC3 | Edward2 | Tensorflow Probability |
+|------| ------- | ------- | ------- | ------- | ------- |
+|Script   | NUTS: 54.53| NUTS: 1815.60 | NUTS: N/A, MH: 50.42 | NUTS: 2053.96, HMC: 31.56  |  NUTS: 2086.73, HMC: 15.48 |
+|Notebook | NUTS: 56.54 | NUTS: 2236.87 | NUTS: N/A, MH:29.26 | NUTS: 1968.84, HMC: 30.06  |  NUTS: 1981.48, HMC: 21.88|
+
+
