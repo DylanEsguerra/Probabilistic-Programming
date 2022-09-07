@@ -11,27 +11,22 @@ We are interested in evaluating how using different tools and samplers will effe
 
 Probabilistic programming is a tool for statistical modeling where a model is defined in terms of random variables and inference is run automatically. 
 
-We will be evaluating two models in five different PPL's available with python. For most PPL's the default sampler for MCMC is NUTS. We aimed to fit all the models in NUTS and used other samplers when appropriate. 
+We will be evaluating two models in five different probabilistic programming languages (PPLs) available with python. For most PPLs the default sampler for MCMC is NUTS. We aimed to fit all the models in NUTS and used other samplers when appropriate. 
 
-\begin{center}
-\begin{tabular}{||c c c c c||} 
- \hline
- Numpyro & Pyro & PyMC3 & Edward2 & Tensorflow Probability \\ [0.5ex] 
- \hline 
- NUTS & NUTS & NUTS and MH & NUTS and HMC & NUTS and HMC \\ 
- \hline
-\end{tabular}
-\end{center}
+
+| Numpyro | Pyro | PyMC3 | Edward2 | Tensorflow | Probability |
+| ------- | ------- | ------- | ------- | ------- | ------- |
+|NUTS | NUTS | NUTS, MH | NUTS, HMC | NUTS, HMC|
 
 ## The Data
-This dataset consists of 97 antibody observations and 92 amino acid mutations used as features. We want to model the effect of these mutations on binding affinity to the SARS-CoV-2 virus. 
+This dataset consists of 97 antibody observations and 92 amino acid mutations used as features. We want to model the effect of these mutations on melt temperature, an important manufacturability metric.
 
 ##The Models
 We chose to fit two Bayesian models, the first being a simple regression model and the second being a hierarchical model with both random slopes and intercepts.  
 
 
 ### Simple Bayesian Model
-The first model gives normal priors on the slopes and intercept and an Inverse gamma prior on the models variance. These were chosen do to the analytical tractability given by conjugacy should comparisons want to be made between the inference preformed by the PPL's and a hand coded Gibb's sampler. Hyper-parameters were chosen to reflect the data particularly for the intercept. 
+The first model gives normal priors on the slopes and intercept and an Inverse gamma prior on the models variance. These were chosen do to the analytical tractability given by conjugacy should comparisons want to be made between the inference preformed by the PPLs and a hand coded Gibb's sampler. Hyper-parameters were chosen to reflect the data particularly for the intercept. 
 
 $$y_{i}|\beta,\alpha,\sigma \sim N({x_{i}}^{T} \beta + \alpha, \sigma^2), i = 1,......,n$$
 
@@ -46,6 +41,8 @@ $$\sigma^2 \sim IG(1,1)$$
 This model was chosen to explore the effect of antibody clusters on our coefficients. Our data set can be divided into two distinct antibody clusters based on similarities between antibodies. We want to see how mutations behave on different antibody clusters which can be thought of as backbones to witch the mutations are applied.  
 
 Hierarchical models also known as partially pooled models are good for modeling data with different groups because they allow for between group variation but still link the groups by a common prior distribution. 
+
+Here we chose to use a non-informative priors for our hyperpriors to see if the hierarchical model can converge to expected results when given less initial information. Experimenting with tighter priors (less variance) revealed similar results for the primary coefficients ($\Beta, \alpha, \sigma$
 
 
 $$y_{ij}|\beta,\alpha,\sigma \sim N({x_{ij}}^{T} \beta_{i} + \alpha_{i}, \sigma^2), i = 1,2, j = 1,....n_{i}$$
@@ -70,7 +67,7 @@ $$\tau_{a} \sim IG(100,100)$$
 
 ### Run time
 
-Each model was run for 5,000 samples and 2,500 burn in steps and one chain. This was chosen as most models appeared to converge well at this length and consistency of iterations is important for run time comparisons. However it must be noted that not all samplers are the same in the amount of iterations needed to reach convergence. Note that the NUTS sampler seemed to have already converged for both models in as little as 1,000 steps where HMC and especially the Metropolis Hastings algorithm need more. Also note that multiple chains are often useful when evaluating the convergence of MCMC. Only one chain was used here to to Pyro's inability to handle multiple chains in the Hierarchical model. The use of multiple chains also proved tricky in Edward2 and Tensorflow Probability although it is supposed to be possible. 
+Each model was run for 5,000 samples and 2,500 burn in steps and one chain. This was chosen as most models appeared to converge well at this length and consistency of iterations is important for run time comparisons. However it must be noted that not all samplers are the same in the amount of iterations needed to reach convergence. Note that the NUTS sampler seemed to have already converged for both models in as little as 1,000 steps where HMC and especially the Metropolis Hastings algorithm need more. Also note that multiple chains are often useful when evaluating the convergence of MCMC. Only one chain was used here do to Pyro's inability to handle multiple chains in the Hierarchical model. The use of multiple chains also proved tricky in Edward2 and Tensorflow Probability although it is supposed to be possible. 
 
 \begin{center}
 \begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}| }
