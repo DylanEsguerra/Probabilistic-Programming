@@ -65,13 +65,13 @@ $$\tau_{a} \sim IG(100,100)$$
 
 #### Simple Model
 
-The trace and density plots shown below are from the simple bayesian model run on Numpyro with the NUTS sampler. Convergence seems to be well achieved and that is confirmed when multiple chains are run. This figure was created for the runtime comparison part of the project so was only run for one chain. 
+The trace and density plots shown below are from the simple Bayesian model run on Numpyro with the NUTS sampler. Convergence seems to be well achieved and that is confirmed when multiple chains are run. This figure was created for the runtime comparison part of the project so was only run for one chain. 
 
 <img src="{{ "/assets/trace.png" | prepend: site.baseurl | prepend: site.url}}" alt="Simple Model Trace and Density" />
 
 #### Hierarchical Model
 
-For the hiearchical bayesian model the results below are also from Numpyro with the NUTS sampler. Here observe two plots for the intercept $$\alpha$$ this shows the direct effect of being from one of the two antibody clusters. The slopes $$\beta$$ have 184 traces, two for each single point mutation. This model allows for any given mutation to have a unique effect on melt temperature depending on the cluster an individual antibody belongs to, while still linking them together with a common prior distribution. 
+For the Hiearchical Bayesian model the results below are also from Numpyro with the NUTS sampler. Here observe two plots for the intercept $$\alpha$$ this shows the direct effect of being from one of the two antibody clusters. The slopes $$\beta$$ have 184 traces, two for each single point mutation. This model allows for any given mutation to have a unique effect on melt temperature depending on the cluster an individual antibody belongs to, while still linking them together with a common prior distribution. 
 
 <img src="{{ "/assets/H_trace.png" | prepend: site.baseurl | prepend: site.url}}" alt="Hierarchical Model Trace and Density" />
 
