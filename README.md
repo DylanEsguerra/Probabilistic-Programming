@@ -74,7 +74,7 @@ The trace and density plots shown below are from the simple bayesian model run o
 
 For the hiearchical bayesian model the results below are also from Numpyro with the NUTS sampler. Here observe two plots for the intercept $$\alpha$$ this shows the direct effect of being from one of the two antibody clusters. The slopes $$\beta$$ have 184 traces, two for each single point mutation. This model allows for any given mutation to have a unique effect on melt temperature depending on the cluster an individual antibody belongs to, while still linking them together with a common prior distribution.
 
-[Hierarchical Modle Trace and Density](/assets/H_trace.png)
+![Hierarchical Modle Trace and Density](/assets/H_trace.png)
 
 ### Run time
 
