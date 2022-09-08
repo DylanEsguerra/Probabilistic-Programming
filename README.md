@@ -21,9 +21,8 @@ We will be evaluating two models in five different probabilistic programming lan
 ## The Data
 This dataset consists of 97 antibody observations and 92 amino acid mutations used as features. We want to model the effect of these mutations on melt temperature, an important manufacturability metric.
 
-##The Models
+## The Models
 We chose to fit two Bayesian models, the first being a simple regression model and the second being a hierarchical model with both random slopes and intercepts.  
-
 
 ### Simple Bayesian Model
 The first model gives normal priors on the slopes and intercept and an Inverse gamma prior on the models variance. These were chosen do to the analytical tractability given by conjugacy. This would prove particularly useful should comparisons want to be made between the inference preformed by the PPLs and a hand coded Gibb's sampler. Hyper-parameters were chosen to reflect the data particularly for the intercept.
@@ -65,14 +64,21 @@ $$\tau_{a} \sim IG(100,100)$$
 
 ### Coefficients
 
-![Simple Model](/assets/trace.png)
-![Hierarchical Model](/assets/H_trace.png)
+#### Simple Model
 
+The trace and density plots shown below are from the simple bayesian model run on Numpyro with the NUTS sampler. Convergence seems to be well achieved and that is confirmed when multiple chains are run. This figure was created for the runtime comparison part of the project so was only run for one chain.
+
+![Simple Modle Trace and Density](/assets/trace.png)
+
+#### Hierarchical Model
+
+For the hiearchical bayesian model the results below are also from Numpyro with the NUTS sampler. Here observe two plots for the intercept $$\alpha$$ this shows the direct effect of being from one of the two antibody clusters. The slopes $$\beta$$ have 184 traces, two for each single point mutation. This model allows for any given mutation to have a unique effect on melt temperature depending on the cluster an individual antibody belongs to, while still linking them together with a common prior distribution.
+
+[Hierarchical Modle Trace and Density](/assets/H_trace.png)
 
 ### Run time
 
 Each model was run for 5,000 samples and 2,500 burn in steps and one chain. This was chosen as most models appeared to converge well at this length and consistency of iterations is important for run time comparisons. However it must be noted that not all samplers are the same in the amount of iterations needed to reach convergence. Note that the NUTS sampler seemed to have already converged for both models in as little as 1,000 steps where HMC and especially the Metropolis Hastings algorithm need more. Also note that multiple chains are often useful when evaluating the convergence of MCMC. Only one chain was used here do to Pyro's inability to handle multiple chains in the Hierarchical model. The use of multiple chains also proved tricky in Edward2 and Tensorflow Probability although it is supposed to be possible.
-
 
 |Runtime in Seconds Simple Model|
 | | Numpyro | Pyro | PyMC3 | Edward2 | Tensorflow Probability |
