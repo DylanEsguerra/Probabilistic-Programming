@@ -41,7 +41,7 @@ This model was chosen to explore the effect of antibody clusters on our coeffici
 
 Hierarchical models also known as partially pooled models are good for modeling data with different groups because they allow for between group variation but still link the groups by a common prior distribution.
 
-Here we chose to use a non-informative priors (high variance not a Jeffry's prior) for our hyperpriors to see if the hierarchical model can converge to expected results when given less initial information. Experimenting with tighter priors (less variance) revealed similar results for the primary coefficients ($\Beta, \alpha, \sigma$)
+Here we chose to use a non-informative priors (high variance not a Jeffry's prior) for our hyperpriors to see if the hierarchical model can converge to expected results when given less initial information. Experimenting with tighter priors (less variance) revealed similar results for the primary coefficients ($$\Beta, \alpha, \sigma$$)
 
 
 $$y_{ij}|\beta,\alpha,\sigma \sim N({x_{ij}}^{T} \beta_{i} + \alpha_{i}, \sigma^2), i = 1,2, j = 1,....n_{i}$$
