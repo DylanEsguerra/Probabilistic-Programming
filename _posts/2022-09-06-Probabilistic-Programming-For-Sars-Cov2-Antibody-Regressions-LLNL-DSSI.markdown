@@ -69,11 +69,11 @@ $$\tau_{a} \sim IG(100,100)$$
 #### Simple Model
 
 
-![Simple Model](/assets/trace.png)
+![Simple Model Trace and Density](/assets/trace.png)
 
 #### Hierarchical Model
 
-![Hierarchical Model](/assets/H_trace.png)
+![Hierarchical Model Trace and Density](/assets/H_trace.png)
 
 
 ### Run time
