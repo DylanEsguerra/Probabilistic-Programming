@@ -22,7 +22,7 @@ title: LLNL DSSI 2022 Probabilistic Programming for Covid Antibody Regressions
 email: desguerr@ucsc.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Summary of my project while working at Lawrence Livermore National Laboratory as a DSSI intern. My mentor was Emilia Grzesaik
-  and I worked on the evaluation probabilistic programming languages in python for the use of builiding bayesian regression models for antibody melt temperature
+  and I worked on the evaluation probabilistic programming languages in python for the use of builiding Bayesian regression models for antibody melt temperature
 baseurl: "Probabilistic-Programming/" # the subpath of your site, e.g. /blog
 url: "https://dylanesguerra.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  DylanEsguerra
