@@ -65,8 +65,8 @@ $$\tau_{a} \sim IG(100,100)$$
 
 ### Coefficients
 
-![Simple Model](_posts/trace.png)
-![Hierarchical Model](_posts/H_trace.png)
+![Simple Model](/assets/trace.png)
+![Hierarchical Model](/assets/H_trace.png)
 
 
 ### Run time
