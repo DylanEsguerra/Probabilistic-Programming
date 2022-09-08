@@ -1,8 +1,5 @@
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# Probabilistic Programming for Sars-Cov-2 Antibody regressions
-
-
 ## Motivation
 
 From existing SARS-CoV-1 antibodies, LLNL researchers have introduced different combinations of multiple amino acid mutations that should increase their binding affinity to the SARS-CoV-2 virus. For each potential SARS-CoV-2 antibody, manufacturability data was collected, and this was used to model the effects of the single point mutations on the manufacturability/binding metrics.
