@@ -23,7 +23,7 @@ We will be evaluating two models in five different probabilistic programming lan
 ## The Data
 This dataset consists of 97 antibody observations and 92 amino acid mutations used as features. We want to model the effect of these mutations on melt temperature, an important manufacturability metric.
 
-##The Models
+## The Models
 We chose to fit two Bayesian models, the first being a simple regression model and the second being a hierarchical model with both random slopes and intercepts.  
 
 ### Simple Bayesian Model
@@ -68,11 +68,11 @@ $$\tau_{a} \sim IG(100,100)$$
 
 #### Simple Model
 
-![Simple Model](/Probabilistic-Programming?_posts/trace.png)
+![Simple Model](/trace.png)
 
 #### Hierarchical Model 
 
-![Hierarchical Model](/Probabilistic-Programming/_posts/H_trace.png)
+![Hierarchical Model](/H_trace.png)
 
 ### Run time
 
