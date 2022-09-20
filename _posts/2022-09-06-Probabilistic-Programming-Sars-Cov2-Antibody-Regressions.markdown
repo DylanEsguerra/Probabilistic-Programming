@@ -90,3 +90,5 @@ Each model was run for 5,000 samples and 2,500 burn in steps and one chain. This
 |------| ------- | ------- | ------- | ------- | ------- |
 |Script   | NUTS: 54.53| NUTS: 1815.60 | NUTS: N/A, MH: 50.42 | NUTS: 2053.96, HMC: 31.56  |  NUTS: 2086.73, HMC: 15.48 |
 |Notebook | NUTS: 56.54 | NUTS: 2236.87 | NUTS: N/A, MH:29.26 | NUTS: 1968.84, HMC: 30.06  |  NUTS: 1981.48, HMC: 21.88|
+
+This work was performed under the auspices of the U.S. Department of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344. LLNL-MI-839825
